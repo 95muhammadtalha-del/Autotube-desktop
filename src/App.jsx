@@ -1814,18 +1814,7 @@ export default function App() {
             {/* Action Bar (Upload & Process) */}
             <div style={{ background: 'var(--bg-panel)', border: '1px solid var(--border-color)', borderRadius: '1rem', padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', flexWrap: 'wrap', gap: '1rem' }}>
                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flex: 1 }}>
-                 <input 
-                    type="text" 
-                    placeholder="Paste YouTube or TikTok URL..." 
-                    value={urlInput}
-                    onChange={e => setUrlInput(e.target.value)}
-                    style={{ flex: 1, maxWidth: '300px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: '#fff', padding: '0.6rem 1rem', borderRadius: '2rem', fontSize: '0.85rem' }}
-                 />
-                 <button className="btn-pill" onClick={handleUrlDownload} disabled={isDownloading || !urlInput} style={{ background: 'rgba(255,255,255,0.1)' }}>
-                    {isDownloading ? 'Downloading...' : 'Load URL'}
-                 </button>
-                 <span style={{ margin: '0 0.5rem', color: 'var(--text-muted)' }}>OR</span>
-                 <button className="btn-pill" onClick={handlePlayerUpload} style={{ background: 'rgba(255,255,255,0.05)' }}><Upload size={16}/> Browse File</button>
+                 <button className="btn-pill" onClick={handlePlayerUpload} style={{ background: 'rgba(255,255,255,0.05)', padding: '0.6rem 1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}><Upload size={18}/> Browse File</button>
                </div>
                
                <button 
