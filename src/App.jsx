@@ -1680,7 +1680,7 @@ export default function App() {
                       <span>AI Generated Output</span>
                       <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                           {/* Aspect Ratio Buttons */}
-                          {[{val:'9:16',label:'▯ Vertical'},{val:'1:1',label:'⬜ Square'},{val:'16:9',label:'▭ Horizontal'}].map(r => (
+                          {[{val:'9:16',label:'▯ Vertical',c:'#3b82f6'},{val:'1:1',label:'⬜ Square',c:'#ec4899'},{val:'16:9',label:'▭ Horizontal',c:'#8b5cf6'}].map(r => (
                             <button
                               key={r.val}
                               onClick={() => setAspectRatio(r.val)}
@@ -1691,9 +1691,11 @@ export default function App() {
                                   border: 'none',
                                   cursor: 'pointer',
                                   fontWeight: 700,
-                                  background: aspectRatio === r.val ? 'rgba(0,0,0,0.6)' : 'rgba(0,0,0,0.2)',
+                                  background: aspectRatio === r.val ? r.c : 'rgba(0,0,0,0.2)',
                                   color: '#fff',
-                                  outline: aspectRatio === r.val ? '2px solid rgba(255,255,255,0.4)' : 'none'
+                                  outline: aspectRatio === r.val ? `2px solid ${r.c}` : 'none',
+                                  outlineOffset: '2px',
+                                  transition: 'all 0.2s'
                                 }}
                             >{r.label}</button>
                           ))}
@@ -1711,11 +1713,17 @@ export default function App() {
                                 border: 'none',
                                 cursor: 'pointer',
                                 fontWeight: 700,
-                                background: 'rgba(0,0,0,0.25)',
-                                color: '#000',
-                                display: 'flex', alignItems: 'center', gap: '0.3rem'
+                                background: '#10b981',
+                                color: '#fff',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.3rem',
+                                boxShadow: '0 2px 10px rgba(16,185,129,0.3)',
+                                transition: 'all 0.2s'
                               }}
-                            >📥 Download</button>
+                            >
+                              <Download size={12} /> Save
+                            </button>
                           )}
                           {playerOutputVideos.length > 1 && (
                               <>
