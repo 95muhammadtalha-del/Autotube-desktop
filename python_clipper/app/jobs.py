@@ -337,16 +337,20 @@ def _run_pipeline(job: Job) -> None:
 
             clip_words = [w for w in words if w["end"] > start and w["start"] < end]
             ass_path = clip_dir / f"{index}.ass"
-            captions.build_ass(
-                words=clip_words,
-                style_preset=req.caption_style,
-                video_w=width,
-                video_h=height,
-                out_path=ass_path,
-                clip_start=start,
-                overrides=caption_overrides,
-                fit_mode=req.fit_mode.value,
-            )
+            if req.caption_style:
+                captions.build_ass(
+                    words=clip_words,
+                    style_preset=req.caption_style,
+                    video_w=width,
+                    video_h=height,
+                    out_path=ass_path,
+                    clip_start=start,
+                    overrides=caption_overrides,
+                    fit_mode=req.fit_mode.value,
+                )
+            else:
+                # No captions requested — write an empty ASS so ffmpeg doesn't fail
+                ass_path.write_text("")
 
             # Auto Face Tracking
             reframe_keyframes = None
@@ -382,6 +386,9 @@ def _run_pipeline(job: Job) -> None:
                 video_speed=req.video_speed,
                 flip_horizontal=req.flip_horizontal,
                 blur_background=req.blur_background,
+                edge_crop=req.edge_crop,
+                zoom_factor=req.zoom_factor,
+                audio_pitch=req.audio_pitch,
             )
 
             def on_render_progress(frac: float, msg: str) -> None:
