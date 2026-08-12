@@ -27,6 +27,17 @@ import './index.css';
 // Dynamically require electron to avoid Vite build errors
 const electron = window.require ? window.require('electron') : null;
 
+if (typeof window !== 'undefined') {
+  window.addEventListener('error', (e) => {
+    console.error('GLOBAL ERROR:', e.error || e.message);
+    if (electron) electron.ipcRenderer.invoke('log-error', e.error ? e.error.stack : e.message);
+  });
+  window.addEventListener('unhandledrejection', (e) => {
+    console.error('GLOBAL PROMISE ERROR:', e.reason);
+    if (electron) electron.ipcRenderer.invoke('log-error', String(e.reason));
+  });
+}
+
 // ── YouTube Audio Downloader Component ────────────────────────────────────────
 function YTMusicDownloader({ onSaved }) {
   const [url, setUrl] = useState('');
@@ -1601,13 +1612,23 @@ export default function App() {
           </div>
         </div>
 
-        <div className="export-folder" style={{ cursor: 'pointer' }} onClick={() => {
+        <div className="export-folder" style={{ cursor: 'pointer', marginBottom: '0.5rem' }} onClick={() => {
           if (electron && appSettings.exportFolder) {
             electron.ipcRenderer.invoke('shell:open', appSettings.exportFolder);
           }
         }}>
           <FolderOpen size={32} />
           <span style={{ fontSize: '0.8rem', textAlign: 'center' }}>Export folder</span>
+        </div>
+
+        <div className="export-folder" style={{ cursor: 'pointer', background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444' }} onClick={() => {
+          if (confirm('Are you sure you want to exit the application and stop all automation?')) {
+            if (electron) electron.ipcRenderer.invoke('app:exit');
+          }
+        }}>
+          <span style={{ fontSize: '0.9rem', fontWeight: 600, textAlign: 'center', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Trash2 size={16} /> Exit App
+          </span>
         </div>
       </div>
 

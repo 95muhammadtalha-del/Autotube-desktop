@@ -19,6 +19,15 @@ import { processVideoWithClipper } from './src/backend/clipperClient.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+ipcMain.handle('log-error', (event, errorText) => {
+  console.error('\n[FRONTEND CRASH]', errorText, '\n');
+});
+
+ipcMain.handle('app:exit', () => {
+  app.quit();
+});
+
 const isDev = !app.isPackaged;
 
 app.commandLine.appendSwitch('disable-gpu-cache');
