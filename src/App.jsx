@@ -1729,7 +1729,14 @@ export default function App() {
                         return (
                             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#000', padding: '1rem', gap: '1rem' }}>
                                 <video 
-                                    if (playerInputVideo && !isPlayerProcessing) {
+                                    src={playerOutputVideo.startsWith('http') ? playerOutputVideo : `file:///${playerOutputVideo.replace(/\\\\/g, '/')}`} 
+                                    controls 
+                                    style={{ height: '100%', maxHeight: '340px', borderRadius: '0.5rem', boxShadow: '0 0 20px rgba(0,0,0,0.5)' }}
+                                />
+                            </div>
+                        );
+                    }
+                    if (playerInputVideo && !isPlayerProcessing) {
                         const zoom = activeCampaign.clipperZoom !== undefined ? activeCampaign.clipperZoom : 1.0;
                         const cg = activeCampaign.clipperColorGrade || 'vibrant';
                         let f = '';
