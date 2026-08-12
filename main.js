@@ -853,7 +853,7 @@ ipcMain.handle('app:install_update', () => {
 
 ipcMain.handle('app:clear_data', async () => {
   try {
-    const cfg = store.get('appSettings') || {};
+    const cfg = loadConfig();
     const exportFolder = cfg.exportFolder || path.join(app.getPath('desktop'), 'AutoTube Outputs');
     const tiktokDir = path.join(exportFolder, 'TikTok Downloads');
     const tempDir = path.join(app.getPath('userData'), 'temp');
