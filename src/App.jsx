@@ -2225,9 +2225,27 @@ export default function App() {
                   {updateState.available && !updateState.downloaded && (
                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                        <p style={{ color: 'var(--success)' }}>A new update is available!</p>
-                       <button className="btn-primary" onClick={handleDownloadUpdate}>
-                          Download Update
-                       </button>
+                       {updateState.downloading ? (
+                         <div>
+                           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                             <span>Downloading...</span>
+                             <span>{Math.round(updateState.progress || 0)}%</span>
+                           </div>
+                           <div style={{ width: '100%', height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '3px', marginTop: '4px', overflow: 'hidden' }}>
+                             <div style={{ width: `${updateState.progress || 0}%`, height: '100%', background: 'var(--brand-primary)', transition: 'width 0.2s' }} />
+                           </div>
+                         </div>
+                       ) : (
+                         <button 
+                           className="btn-primary" 
+                           onClick={() => {
+                             setUpdateState(s => ({ ...s, downloading: true }));
+                             handleDownloadUpdate();
+                           }}
+                         >
+                            Download Update
+                         </button>
+                       )}
                        {updateState.progress > 0 && (
                           <div style={{ background: '#333', height: '8px', borderRadius: '4px', overflow: 'hidden' }}>
                              <div style={{ background: 'var(--success)', height: '100%', width: `${updateState.progress}%` }}></div>

@@ -1,9 +1,9 @@
 {
     "name": "youtube-automation",
-    "description": "Automated TikTok to YouTube video reposting tool",
+    "description": "AutoTube Desktop Client",
     "author": "AutoTube",
     "private": true,
-    "version": "1.0.3",
+    "version": "1.0.4",
     "type": "module",
     "main": "main.js",
     "scripts": {
