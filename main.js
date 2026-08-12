@@ -826,6 +826,9 @@ autoUpdater.on('download-progress', (progressObj) => {
 autoUpdater.on('update-downloaded', () => {
   if (updateWindow) updateWindow.webContents.send('update_downloaded');
 });
+autoUpdater.on('error', (err) => {
+  if (updateWindow) updateWindow.webContents.send('update_error', err.message);
+});
 
 ipcMain.handle('app:check_updates', async (event) => {
   updateWindow = event.sender.getOwnerBrowserWindow();

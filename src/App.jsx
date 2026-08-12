@@ -675,17 +675,20 @@ export default function App() {
       const onNotAvailable = () => setUpdateState(s => ({ ...s, checking: false, available: false, error: 'You are on the latest version.' }));
       const onProgress = (e, info) => setUpdateState(s => ({ ...s, progress: info.percent }));
       const onDownloaded = () => setUpdateState(s => ({ ...s, downloaded: true }));
+      const onError = (e, errMessage) => setUpdateState(s => ({ ...s, downloading: false, error: 'Download failed: ' + errMessage }));
 
       electron.ipcRenderer.on('update_available', onAvailable);
       electron.ipcRenderer.on('update_not_available', onNotAvailable);
       electron.ipcRenderer.on('download_progress', onProgress);
       electron.ipcRenderer.on('update_downloaded', onDownloaded);
+      electron.ipcRenderer.on('update_error', onError);
 
       return () => {
         electron.ipcRenderer.removeListener('update_available', onAvailable);
         electron.ipcRenderer.removeListener('update_not_available', onNotAvailable);
         electron.ipcRenderer.removeListener('download_progress', onProgress);
         electron.ipcRenderer.removeListener('update_downloaded', onDownloaded);
+        electron.ipcRenderer.removeListener('update_error', onError);
       };
     }
   }, []);
