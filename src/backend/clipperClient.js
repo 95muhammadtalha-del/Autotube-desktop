@@ -78,7 +78,7 @@ export async function processVideoWithClipper(videoPath, logFn, config = {}) {
       fit_mode: 'crop',
       num_clips: 1,
       clip_length: 600, // Up to 10 minutes (captures the whole TikTok)
-      caption_style: config.clipperCaptionStyle === 'none' ? null : (config.clipperCaptionStyle || 'hormozi_green'),
+      caption_style: config.clipperCaptionStyle === 'none' ? "" : (config.clipperCaptionStyle || 'hormozi_green'),
       language: config.clipperLanguage || 'auto',
       video_speed: parseFloat(config.clipperSpeed) || 1.2,
       flip_horizontal: config.clipperFlip !== undefined ? config.clipperFlip : true,
