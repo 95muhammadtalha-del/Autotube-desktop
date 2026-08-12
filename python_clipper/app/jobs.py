@@ -349,8 +349,8 @@ def _run_pipeline(job: Job) -> None:
                     fit_mode=req.fit_mode.value,
                 )
             else:
-                # No captions requested — write an empty ASS so ffmpeg doesn't fail
-                ass_path.write_text("")
+                # No captions requested — write a valid empty ASS so ffmpeg doesn't fail
+                ass_path.write_text("[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\n[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n", encoding="utf-8")
 
             # Auto Face Tracking
             reframe_keyframes = None
