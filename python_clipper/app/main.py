@@ -495,3 +495,17 @@ async def unhandled_exception_handler(request, exc):  # noqa: ANN001
         status_code=500,
         content={"detail": f"Unexpected server error: {exc}"},
     )
+
+
+@app.get("/api/health")
+def health_check():
+    """Simple health check so the Electron app can wait for startup."""
+    return {"status": "ok"}
+
+
+if __name__ == "__main__":
+    import uvicorn
+    import os
+    host = os.environ.get("HOST", "127.0.0.1")
+    port = int(os.environ.get("PORT", "8000"))
+    uvicorn.run(app, host=host, port=port, log_level="info")

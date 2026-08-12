@@ -3,7 +3,7 @@
     "description":  "Automated TikTok to YouTube video reposting tool",
     "author":  "AutoTube",
     "private":  true,
-    "version":  "1.0.0",
+    "version":  "1.0.1",
     "type":  "module",
     "main":  "main.js",
     "scripts":  {
@@ -12,13 +12,13 @@
                     "lint":  "oxlint",
                     "preview":  "vite preview",
                     "electron:dev":  "concurrently \"vite\" \"wait-on tcp:5173 \u0026\u0026 cross-env NODE_ENV=development electron .\"",
-                    "package":  "powershell -ExecutionPolicy Bypass -File build_backend.ps1 \u0026\u0026 vite build \u0026\u0026 electron-builder --win --x64"
+                    "package":  "powershell -ExecutionPolicy Bypass -File build_backend.ps1 \u0026\u0026 vite build \u0026\u0026 electron-builder --win --x64 --publish never"
                 },
     "build":  {
                   "appId":  "com.autotube.app",
                   "productName":  "AutoTube",
                   "directories":  {
-                                      "output":  "E:/AutoTubeBuild"
+                                      "output":  "C:/Users/DawoodMehmood/Desktop/AutoTubeBuild"
                                   },
                   "files":  [
                                 "dist/**/*",
@@ -62,13 +62,6 @@
                                "createDesktopShortcut":  true,
                                "createStartMenuShortcut":  true
                            },
-                  "publish":  [
-                                  {
-                                      "provider":  "github",
-                                      "owner":  "YOUR_GITHUB_USERNAME",
-                                      "repo":  "YOUR_REPO_NAME"
-                                  }
-                              ],
                   "extraResources":  [
                                          {
                                              "filter":  [
@@ -77,7 +70,14 @@
                                              "from":  "python_clipper/dist/python_clipper",
                                              "to":  "python_clipper"
                                          }
-                                     ]
+                                     ],
+                  "publish":  [
+                                  {
+                                      "provider":  "github",
+                                      "owner":  "95muhammadtalha-del",
+                                      "repo":  "Autotube-desktop"
+                                  }
+                              ]
               },
     "dependencies":  {
                          "@distube/ytdl-core":  "^4.16.12",

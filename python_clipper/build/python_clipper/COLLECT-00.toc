@@ -1,0 +1,930 @@
+([('MSVCP140_1.dll', 'C:\\Windows\\system32\\MSVCP140_1.dll', 'BINARY'),
+  ('_asyncio.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_asyncio.pyd',
+   'EXTENSION'),
+  ('_bz2.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_bz2.pyd',
+   'EXTENSION'),
+  ('_ctypes.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_ctypes.pyd',
+   'EXTENSION'),
+  ('_decimal.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_decimal.pyd',
+   'EXTENSION'),
+  ('_hashlib.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_hashlib.pyd',
+   'EXTENSION'),
+  ('_lzma.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_lzma.pyd',
+   'EXTENSION'),
+  ('_multiprocessing.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_multiprocessing.pyd',
+   'EXTENSION'),
+  ('_overlapped.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_overlapped.pyd',
+   'EXTENSION'),
+  ('_queue.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_queue.pyd',
+   'EXTENSION'),
+  ('_socket.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_socket.pyd',
+   'EXTENSION'),
+  ('_sqlite3.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_sqlite3.pyd',
+   'EXTENSION'),
+  ('_ssl.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_ssl.pyd',
+   'EXTENSION'),
+  ('_uuid.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_uuid.pyd',
+   'EXTENSION'),
+  ('_zoneinfo.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_zoneinfo.pyd',
+   'EXTENSION'),
+  ('ada92cb5d92a588d1b93__mypyc.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\ada92cb5d92a588d1b93__mypyc.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('assets\\fonts\\AlfaSlabOne-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\AlfaSlabOne-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\Anton-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\Anton-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\ArchivoBlack-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\ArchivoBlack-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\Bangers-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\Bangers-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\BebasNeue-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\BebasNeue-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\BowlbyOneSC-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\BowlbyOneSC-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\Bungee-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\Bungee-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\Changa.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\Changa.ttf',
+   'DATA'),
+  ('assets\\fonts\\ConcertOne-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\ConcertOne-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\DMSerifDisplay-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\DMSerifDisplay-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\LilitaOne-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\LilitaOne-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\LuckiestGuy-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\LuckiestGuy-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\Montserrat.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\Montserrat.ttf',
+   'DATA'),
+  ('assets\\fonts\\NotoNaskhArabic-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\NotoNaskhArabic-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\NotoNastaliqUrdu-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\NotoNastaliqUrdu-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\NotoSansArabic-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\NotoSansArabic-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\NotoSansDevanagari-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\NotoSansDevanagari-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\NotoSerifDevanagari-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\NotoSerifDevanagari-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\Oswald.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\Oswald.ttf',
+   'DATA'),
+  ('assets\\fonts\\PassionOne-Bold.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\PassionOne-Bold.ttf',
+   'DATA'),
+  ('assets\\fonts\\PaytoneOne-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\PaytoneOne-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\PermanentMarker-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\PermanentMarker-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\Poppins-Bold.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\Poppins-Bold.ttf',
+   'DATA'),
+  ('assets\\fonts\\Roboto-Bold.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\Roboto-Bold.ttf',
+   'DATA'),
+  ('assets\\fonts\\Roboto-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\Roboto-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\RussoOne-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\RussoOne-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\Shrikhand-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\Shrikhand-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\SigmarOne-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\SigmarOne-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\Teko.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\Teko.ttf',
+   'DATA'),
+  ('assets\\fonts\\TitanOne-Regular.ttf',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\TitanOne-Regular.ttf',
+   'DATA'),
+  ('assets\\fonts\\user_fonts.json',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\fonts\\user_fonts.json',
+   'DATA'),
+  ('assets\\masks\\rounded_1020_0.png',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\masks\\rounded_1020_0.png',
+   'DATA'),
+  ('assets\\masks\\rounded_1020_60.png',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\masks\\rounded_1020_60.png',
+   'DATA'),
+  ('assets\\music\\Arijit_Singh-_Agar_Tum_Sath_Ho_-_Alka_Yagnik__A.R._Rehman__Irshad_Kamil_-_Yo.m4a',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\music\\Arijit_Singh-_Agar_Tum_Sath_Ho_-_Alka_Yagnik__A.R._Rehman__Irshad_Kamil_-_Yo.m4a',
+   'DATA'),
+  ('assets\\music\\Empire - Ogryzek _edit audio_ __ Non-copyright audios __ '
+   'lol editz.m4a',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\music\\Empire - Ogryzek _edit audio_ __ '
+   'Non-copyright audios __ lol editz.m4a',
+   'DATA'),
+  ('assets\\music\\Montagem orquesta - sinf_nica _ edit audio _ _.m4a',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\music\\Montagem orquesta - sinf_nica _ edit '
+   'audio _ _.m4a',
+   'DATA'),
+  ('assets\\music\\Murder-In-My-Mind_PagalWorlld.Com_.mp3',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\music\\Murder-In-My-Mind_PagalWorlld.Com_.mp3',
+   'DATA'),
+  ('assets\\music\\_Karan_Aujla__Official_Video__Tania__Sukh_Sanghera_Desi_Crew__Latest_Punjabi.mp3',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\music\\_Karan_Aujla__Official_Video__Tania__Sukh_Sanghera_Desi_Crew__Latest_Punjabi.mp3',
+   'DATA'),
+  ('assets\\music\\_Khairiyat__Chhichhore__Nitesh_Tiwari__Arijit_Singh__Sushant__Shraddha__Prit.mp3',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\music\\_Khairiyat__Chhichhore__Nitesh_Tiwari__Arijit_Singh__Sushant__Shraddha__Prit.mp3',
+   'DATA'),
+  ('assets\\music\\another love - tom odell - edit audio.m4a',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\music\\another love - tom odell - edit '
+   'audio.m4a',
+   'DATA'),
+  ('assets\\music\\dum dum_ da di da   slowed _ reverb.m4a',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\music\\dum dum_ da di da   slowed _ '
+   'reverb.m4a',
+   'DATA'),
+  ('assets\\music\\lady-gaga-bad-romance-slowed-reverb-bb-127808_456244124.mp3',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\music\\lady-gaga-bad-romance-slowed-reverb-bb-127808_456244124.mp3',
+   'DATA'),
+  ('assets\\music\\ssvid.net---CANTO-DE-LUNA-Best-Part-Slowed-h6itam-ICEDMANE_v720P.m4a',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\assets\\music\\ssvid.net---CANTO-DE-LUNA-Best-Part-Slowed-h6itam-ICEDMANE_v720P.m4a',
+   'DATA'),
+  ('av.libs\\avcodec-62-984de33114b7fa384296817dec999c9d.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\avcodec-62-984de33114b7fa384296817dec999c9d.dll',
+   'BINARY'),
+  ('av.libs\\avdevice-62-bf7a3ffbb6a4b577f24a39ea98a958d5.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\avdevice-62-bf7a3ffbb6a4b577f24a39ea98a958d5.dll',
+   'BINARY'),
+  ('av.libs\\avfilter-11-aef80fc767dc77e0319469b5bdcdf998.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\avfilter-11-aef80fc767dc77e0319469b5bdcdf998.dll',
+   'BINARY'),
+  ('av.libs\\avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll',
+   'BINARY'),
+  ('av.libs\\avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll',
+   'BINARY'),
+  ('av.libs\\libSvtAv1Enc-c4dd99c98ddcdb013e820dbd68a30e26.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libSvtAv1Enc-c4dd99c98ddcdb013e820dbd68a30e26.dll',
+   'BINARY'),
+  ('av.libs\\libdav1d-959ebc1340f7dfcbcf8e299a26281738.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libdav1d-959ebc1340f7dfcbcf8e299a26281738.dll',
+   'BINARY'),
+  ('av.libs\\libgcc_s_seh-1-4c0a762e4178b574f72d1ef1f8bb5fc9.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libgcc_s_seh-1-4c0a762e4178b574f72d1ef1f8bb5fc9.dll',
+   'BINARY'),
+  ('av.libs\\libiconv-2-6ce5f4ff92ada49d6f23a8e413455502.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libiconv-2-6ce5f4ff92ada49d6f23a8e413455502.dll',
+   'BINARY'),
+  ('av.libs\\libmp3lame-0-da02696cc34a9bbc1d1d4f67a85cfbef.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libmp3lame-0-da02696cc34a9bbc1d1d4f67a85cfbef.dll',
+   'BINARY'),
+  ('av.libs\\libopencore-amrnb-0-b8933128305cd084d40426d0d2c0d9ef.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libopencore-amrnb-0-b8933128305cd084d40426d0d2c0d9ef.dll',
+   'BINARY'),
+  ('av.libs\\libopencore-amrwb-0-49da3acfc50704f92538d74aca03c3b8.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libopencore-amrwb-0-49da3acfc50704f92538d74aca03c3b8.dll',
+   'BINARY'),
+  ('av.libs\\libopus-0-4369edc456631a3cc933d7918747e5d2.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libopus-0-4369edc456631a3cc933d7918747e5d2.dll',
+   'BINARY'),
+  ('av.libs\\libsharpyuv-8b869e30854bf3db317a2a93d0782c3d.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libsharpyuv-8b869e30854bf3db317a2a93d0782c3d.dll',
+   'BINARY'),
+  ('av.libs\\libstdc++-6-2d5c346d47ad531ef9f5185db0e8cef3.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libstdc++-6-2d5c346d47ad531ef9f5185db0e8cef3.dll',
+   'BINARY'),
+  ('av.libs\\libvpl-969a52d626b0390fc34f6a4fb0b08d7e.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libvpl-969a52d626b0390fc34f6a4fb0b08d7e.dll',
+   'BINARY'),
+  ('av.libs\\libvpx-1-d869f8b2cb42d58b35545ffbfb0f7509.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libvpx-1-d869f8b2cb42d58b35545ffbfb0f7509.dll',
+   'BINARY'),
+  ('av.libs\\libwebp-4bf4e57964c7a01c09ce39470d6b67ca.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libwebp-4bf4e57964c7a01c09ce39470d6b67ca.dll',
+   'BINARY'),
+  ('av.libs\\libwebpmux-9cf6581f8709616d9591befbb1a2264b.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libwebpmux-9cf6581f8709616d9591befbb1a2264b.dll',
+   'BINARY'),
+  ('av.libs\\libwinpthread-1-02332fab016bf884a2a7a7b2ece22ffe.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libwinpthread-1-02332fab016bf884a2a7a7b2ece22ffe.dll',
+   'BINARY'),
+  ('av.libs\\libx264-165-f3a909470ddc2d85ed21eda3d0fb7954.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libx264-165-f3a909470ddc2d85ed21eda3d0fb7954.dll',
+   'BINARY'),
+  ('av.libs\\libx265-efe48a158520a59ef99c0a0b3eb835ae.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\libx265-efe48a158520a59ef99c0a0b3eb835ae.dll',
+   'BINARY'),
+  ('av.libs\\swresample-6-0158536d5c4197d7d623445553ce9472.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\swresample-6-0158536d5c4197d7d623445553ce9472.dll',
+   'BINARY'),
+  ('av.libs\\swscale-9-0c9886c118598c54e159ef2267ff99f3.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\swscale-9-0c9886c118598c54e159ef2267ff99f3.dll',
+   'BINARY'),
+  ('av.libs\\zlib1-79e0c4f9db71cb511398c504b832d395.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av.libs\\zlib1-79e0c4f9db71cb511398c504b832d395.dll',
+   'BINARY'),
+  ('av\\_core.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\_core.pyd',
+   'EXTENSION'),
+  ('av\\audio\\codeccontext.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\audio\\codeccontext.pyd',
+   'EXTENSION'),
+  ('av\\audio\\fifo.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\audio\\fifo.pyd',
+   'EXTENSION'),
+  ('av\\audio\\format.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\audio\\format.pyd',
+   'EXTENSION'),
+  ('av\\audio\\frame.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\audio\\frame.pyd',
+   'EXTENSION'),
+  ('av\\audio\\layout.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\audio\\layout.pyd',
+   'EXTENSION'),
+  ('av\\audio\\plane.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\audio\\plane.pyd',
+   'EXTENSION'),
+  ('av\\audio\\resampler.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\audio\\resampler.pyd',
+   'EXTENSION'),
+  ('av\\audio\\stream.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\audio\\stream.pyd',
+   'EXTENSION'),
+  ('av\\bitstream.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\bitstream.pyd',
+   'EXTENSION'),
+  ('av\\buffer.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\buffer.pyd',
+   'EXTENSION'),
+  ('av\\codec\\codec.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\codec\\codec.pyd',
+   'EXTENSION'),
+  ('av\\codec\\context.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\codec\\context.pyd',
+   'EXTENSION'),
+  ('av\\codec\\hwaccel.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\codec\\hwaccel.pyd',
+   'EXTENSION'),
+  ('av\\container\\core.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\container\\core.pyd',
+   'EXTENSION'),
+  ('av\\container\\input.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\container\\input.pyd',
+   'EXTENSION'),
+  ('av\\container\\output.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\container\\output.pyd',
+   'EXTENSION'),
+  ('av\\container\\pyio.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\container\\pyio.pyd',
+   'EXTENSION'),
+  ('av\\container\\streams.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\container\\streams.pyd',
+   'EXTENSION'),
+  ('av\\device.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\device.pyd',
+   'EXTENSION'),
+  ('av\\dictionary.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\dictionary.pyd',
+   'EXTENSION'),
+  ('av\\error.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\error.pyd',
+   'EXTENSION'),
+  ('av\\filter\\context.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\filter\\context.pyd',
+   'EXTENSION'),
+  ('av\\filter\\filter.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\filter\\filter.pyd',
+   'EXTENSION'),
+  ('av\\filter\\graph.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\filter\\graph.pyd',
+   'EXTENSION'),
+  ('av\\filter\\link.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\filter\\link.pyd',
+   'EXTENSION'),
+  ('av\\filter\\loudnorm.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\filter\\loudnorm.pyd',
+   'EXTENSION'),
+  ('av\\format.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\format.pyd',
+   'EXTENSION'),
+  ('av\\frame.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\frame.pyd',
+   'EXTENSION'),
+  ('av\\index.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\index.pyd',
+   'EXTENSION'),
+  ('av\\logging.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\logging.pyd',
+   'EXTENSION'),
+  ('av\\opaque.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\opaque.pyd',
+   'EXTENSION'),
+  ('av\\packet.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\packet.pyd',
+   'EXTENSION'),
+  ('av\\plane.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\plane.pyd',
+   'EXTENSION'),
+  ('av\\sidedata\\encparams.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\sidedata\\encparams.pyd',
+   'EXTENSION'),
+  ('av\\sidedata\\motionvectors.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\sidedata\\motionvectors.pyd',
+   'EXTENSION'),
+  ('av\\sidedata\\sidedata.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\sidedata\\sidedata.pyd',
+   'EXTENSION'),
+  ('av\\stream.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\stream.pyd',
+   'EXTENSION'),
+  ('av\\subtitles\\codeccontext.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\subtitles\\codeccontext.pyd',
+   'EXTENSION'),
+  ('av\\subtitles\\stream.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\subtitles\\stream.pyd',
+   'EXTENSION'),
+  ('av\\subtitles\\subtitle.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\subtitles\\subtitle.pyd',
+   'EXTENSION'),
+  ('av\\utils.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\utils.pyd',
+   'EXTENSION'),
+  ('av\\video\\codeccontext.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\video\\codeccontext.pyd',
+   'EXTENSION'),
+  ('av\\video\\format.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\video\\format.pyd',
+   'EXTENSION'),
+  ('av\\video\\frame.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\video\\frame.pyd',
+   'EXTENSION'),
+  ('av\\video\\plane.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\video\\plane.pyd',
+   'EXTENSION'),
+  ('av\\video\\reformatter.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\video\\reformatter.pyd',
+   'EXTENSION'),
+  ('av\\video\\stream.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\av\\video\\stream.pyd',
+   'EXTENSION'),
+  ('base_library.zip',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\build\\python_clipper\\base_library.zip',
+   'DATA'),
+  ('certifi\\cacert.pem',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\certifi\\cacert.pem',
+   'DATA'),
+  ('certifi\\py.typed',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\certifi\\py.typed',
+   'DATA'),
+  ('charset_normalizer\\cd.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\charset_normalizer\\cd.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('charset_normalizer\\md.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\charset_normalizer\\md.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('click-8.4.2.dist-info\\INSTALLER',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\click-8.4.2.dist-info\\INSTALLER',
+   'DATA'),
+  ('click-8.4.2.dist-info\\METADATA',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\click-8.4.2.dist-info\\METADATA',
+   'DATA'),
+  ('click-8.4.2.dist-info\\RECORD',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\click-8.4.2.dist-info\\RECORD',
+   'DATA'),
+  ('click-8.4.2.dist-info\\WHEEL',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\click-8.4.2.dist-info\\WHEEL',
+   'DATA'),
+  ('click-8.4.2.dist-info\\licenses\\LICENSE.txt',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\click-8.4.2.dist-info\\licenses\\LICENSE.txt',
+   'DATA'),
+  ('ctranslate2\\_ext.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\ctranslate2\\_ext.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('ctranslate2\\ctranslate2.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\ctranslate2\\ctranslate2.dll',
+   'BINARY'),
+  ('ctranslate2\\libiomp5md.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\ctranslate2\\libiomp5md.dll',
+   'BINARY'),
+  ('cv2\\__init__.py',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\cv2\\__init__.py',
+   'DATA'),
+  ('cv2\\config-3.py',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\cv2\\config-3.py',
+   'DATA'),
+  ('cv2\\config.py',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\cv2\\config.py',
+   'DATA'),
+  ('cv2\\cv2.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd',
+   'EXTENSION'),
+  ('cv2\\data\\__init__.py',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\cv2\\data\\__init__.py',
+   'DATA'),
+  ('cv2\\load_config_py3.py',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\cv2\\load_config_py3.py',
+   'DATA'),
+  ('cv2\\mat_wrapper\\__init__.py',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\cv2\\mat_wrapper\\__init__.py',
+   'DATA'),
+  ('cv2\\misc\\__init__.py',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\cv2\\misc\\__init__.py',
+   'DATA'),
+  ('cv2\\misc\\version.py',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\cv2\\misc\\version.py',
+   'DATA'),
+  ('cv2\\opencv_videoio_ffmpeg500_64.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\cv2\\opencv_videoio_ffmpeg500_64.dll',
+   'BINARY'),
+  ('cv2\\typing\\__init__.py',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\cv2\\typing\\__init__.py',
+   'DATA'),
+  ('cv2\\utils\\__init__.py',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\cv2\\utils\\__init__.py',
+   'DATA'),
+  ('cv2\\version.py',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\cv2\\version.py',
+   'DATA'),
+  ('hf_xet\\hf_xet.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\hf_xet\\hf_xet.pyd',
+   'EXTENSION'),
+  ('httptools\\parser\\parser.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\httptools\\parser\\parser.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('httptools\\parser\\url_parser.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\httptools\\parser\\url_parser.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('libcrypto-3.dll',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libcrypto-3.dll',
+   'BINARY'),
+  ('libffi-8.dll',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libffi-8.dll',
+   'BINARY'),
+  ('libssl-3.dll',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libssl-3.dll',
+   'BINARY'),
+  ('msvcp140.dll', 'C:\\Windows\\system32\\msvcp140.dll', 'BINARY'),
+  ('numpy-2.4.6.dist-info\\DELVEWHEEL',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\DELVEWHEEL',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\INSTALLER',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\INSTALLER',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\METADATA',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\METADATA',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\RECORD',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\RECORD',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\WHEEL',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\WHEEL',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\entry_points.txt',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\entry_points.txt',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\LICENSE.txt',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\LICENSE.txt',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\_core\\include\\numpy\\libdivide\\LICENSE.txt',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\_core\\include\\numpy\\libdivide\\LICENSE.txt',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\_core\\src\\common\\pythoncapi-compat\\COPYING',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\_core\\src\\common\\pythoncapi-compat\\COPYING',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\_core\\src\\highway\\LICENSE',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\_core\\src\\highway\\LICENSE',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\_core\\src\\multiarray\\dragon4_LICENSE.txt',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\_core\\src\\multiarray\\dragon4_LICENSE.txt',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\_core\\src\\npysort\\x86-simd-sort\\LICENSE.md',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\_core\\src\\npysort\\x86-simd-sort\\LICENSE.md',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\_core\\src\\umath\\svml\\LICENSE',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\_core\\src\\umath\\svml\\LICENSE',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\fft\\pocketfft\\LICENSE.md',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\fft\\pocketfft\\LICENSE.md',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\linalg\\lapack_lite\\LICENSE.txt',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\linalg\\lapack_lite\\LICENSE.txt',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\ma\\LICENSE',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\ma\\LICENSE',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\random\\LICENSE.md',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\random\\LICENSE.md',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\random\\src\\distributions\\LICENSE.md',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\random\\src\\distributions\\LICENSE.md',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\random\\src\\mt19937\\LICENSE.md',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\random\\src\\mt19937\\LICENSE.md',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\random\\src\\pcg64\\LICENSE.md',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\random\\src\\pcg64\\LICENSE.md',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\random\\src\\philox\\LICENSE.md',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\random\\src\\philox\\LICENSE.md',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\random\\src\\sfc64\\LICENSE.md',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\random\\src\\sfc64\\LICENSE.md',
+   'DATA'),
+  ('numpy-2.4.6.dist-info\\licenses\\numpy\\random\\src\\splitmix64\\LICENSE.md',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy-2.4.6.dist-info\\licenses\\numpy\\random\\src\\splitmix64\\LICENSE.md',
+   'DATA'),
+  ('numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll',
+   'BINARY'),
+  ('numpy.libs\\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy.libs\\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll',
+   'BINARY'),
+  ('numpy\\_core\\_multiarray_tests.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy\\_core\\_multiarray_tests.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('numpy\\_core\\_multiarray_umath.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('numpy\\fft\\_pocketfft_umath.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy\\fft\\_pocketfft_umath.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('numpy\\linalg\\_umath_linalg.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy\\linalg\\_umath_linalg.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('numpy\\random\\_bounded_integers.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy\\random\\_bounded_integers.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('numpy\\random\\_common.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy\\random\\_common.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('numpy\\random\\_generator.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy\\random\\_generator.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('numpy\\random\\_mt19937.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy\\random\\_mt19937.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('numpy\\random\\_pcg64.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy\\random\\_pcg64.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('numpy\\random\\_philox.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy\\random\\_philox.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('numpy\\random\\_sfc64.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy\\random\\_sfc64.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('numpy\\random\\bit_generator.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy\\random\\bit_generator.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('numpy\\random\\mtrand.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\numpy\\random\\mtrand.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('onnxruntime\\capi\\onnxruntime.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\onnxruntime\\capi\\onnxruntime.dll',
+   'BINARY'),
+  ('onnxruntime\\capi\\onnxruntime_providers_shared.dll',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\onnxruntime\\capi\\onnxruntime_providers_shared.dll',
+   'BINARY'),
+  ('onnxruntime\\capi\\onnxruntime_pybind11_state.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\onnxruntime\\capi\\onnxruntime_pybind11_state.pyd',
+   'EXTENSION'),
+  ('pydantic-2.13.4.dist-info\\INSTALLER',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\pydantic-2.13.4.dist-info\\INSTALLER',
+   'DATA'),
+  ('pydantic-2.13.4.dist-info\\METADATA',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\pydantic-2.13.4.dist-info\\METADATA',
+   'DATA'),
+  ('pydantic-2.13.4.dist-info\\RECORD',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\pydantic-2.13.4.dist-info\\RECORD',
+   'DATA'),
+  ('pydantic-2.13.4.dist-info\\REQUESTED',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\pydantic-2.13.4.dist-info\\REQUESTED',
+   'DATA'),
+  ('pydantic-2.13.4.dist-info\\WHEEL',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\pydantic-2.13.4.dist-info\\WHEEL',
+   'DATA'),
+  ('pydantic-2.13.4.dist-info\\licenses\\LICENSE',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\pydantic-2.13.4.dist-info\\licenses\\LICENSE',
+   'DATA'),
+  ('pydantic_core\\_pydantic_core.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\pydantic_core\\_pydantic_core.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('pyexpat.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\pyexpat.pyd',
+   'EXTENSION'),
+  ('python3.dll',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\python3.dll',
+   'BINARY'),
+  ('python311.dll',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\python311.dll',
+   'BINARY'),
+  ('python_clipper.exe',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\build\\python_clipper\\python_clipper.exe',
+   'EXECUTABLE'),
+  ('select.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\select.pyd',
+   'EXTENSION'),
+  ('sqlite3.dll',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\sqlite3.dll',
+   'BINARY'),
+  ('tokenizers\\tokenizers.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\tokenizers\\tokenizers.pyd',
+   'EXTENSION'),
+  ('tqdm-4.70.0.dist-info\\INSTALLER',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\tqdm-4.70.0.dist-info\\INSTALLER',
+   'DATA'),
+  ('tqdm-4.70.0.dist-info\\METADATA',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\tqdm-4.70.0.dist-info\\METADATA',
+   'DATA'),
+  ('tqdm-4.70.0.dist-info\\RECORD',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\tqdm-4.70.0.dist-info\\RECORD',
+   'DATA'),
+  ('tqdm-4.70.0.dist-info\\WHEEL',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\tqdm-4.70.0.dist-info\\WHEEL',
+   'DATA'),
+  ('tqdm-4.70.0.dist-info\\entry_points.txt',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\tqdm-4.70.0.dist-info\\entry_points.txt',
+   'DATA'),
+  ('tqdm-4.70.0.dist-info\\licenses\\LICENCE',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\tqdm-4.70.0.dist-info\\licenses\\LICENCE',
+   'DATA'),
+  ('tqdm-4.70.0.dist-info\\top_level.txt',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\tqdm-4.70.0.dist-info\\top_level.txt',
+   'DATA'),
+  ('unicodedata.pyd',
+   'C:\\Users\\DawoodMehmood\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\unicodedata.pyd',
+   'EXTENSION'),
+  ('vcruntime140.dll', 'C:\\Windows\\system32\\vcruntime140.dll', 'BINARY'),
+  ('vcruntime140_1.dll', 'C:\\Windows\\system32\\vcruntime140_1.dll', 'BINARY'),
+  ('watchfiles\\_rust_notify.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\watchfiles\\_rust_notify.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('websockets-17.0.1.dist-info\\INSTALLER',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\websockets-17.0.1.dist-info\\INSTALLER',
+   'DATA'),
+  ('websockets-17.0.1.dist-info\\METADATA',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\websockets-17.0.1.dist-info\\METADATA',
+   'DATA'),
+  ('websockets-17.0.1.dist-info\\RECORD',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\websockets-17.0.1.dist-info\\RECORD',
+   'DATA'),
+  ('websockets-17.0.1.dist-info\\WHEEL',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\websockets-17.0.1.dist-info\\WHEEL',
+   'DATA'),
+  ('websockets-17.0.1.dist-info\\entry_points.txt',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\websockets-17.0.1.dist-info\\entry_points.txt',
+   'DATA'),
+  ('websockets-17.0.1.dist-info\\licenses\\LICENSE',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\websockets-17.0.1.dist-info\\licenses\\LICENSE',
+   'DATA'),
+  ('websockets-17.0.1.dist-info\\top_level.txt',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\websockets-17.0.1.dist-info\\top_level.txt',
+   'DATA'),
+  ('websockets\\speedups.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\websockets\\speedups.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('yaml\\_yaml.cp311-win_amd64.pyd',
+   'C:\\Users\\DawoodMehmood\\Desktop\\Youtube '
+   'Final\\python_clipper\\.venv\\Lib\\site-packages\\yaml\\_yaml.cp311-win_amd64.pyd',
+   'EXTENSION')],)

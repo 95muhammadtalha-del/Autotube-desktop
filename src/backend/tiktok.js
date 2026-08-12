@@ -1,9 +1,32 @@
 import fs from 'fs';
 import path from 'path';
-import ytDlp from 'yt-dlp-exec';
+import { createRequire } from 'module';
 import { pipeline } from 'stream/promises';
+import { app } from 'electron';
+
+const _require = createRequire(import.meta.url);
+
 const DEFAULT_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36';
 const DEFAULT_REFERER = 'Referer:https://www.tiktok.com/';
+
+// In production, yt-dlp binary lives in app.asar.unpacked, not inside app.asar
+function getYtDlp() {
+  const ytDlpExec = _require('yt-dlp-exec');
+  if (app.isPackaged) {
+    const binaryPath = path.join(
+      process.resourcesPath,
+      'app.asar.unpacked',
+      'node_modules',
+      'yt-dlp-exec',
+      'bin',
+      process.platform === 'win32' ? 'yt-dlp.exe' : 'yt-dlp'
+    );
+    return ytDlpExec.create(binaryPath);
+  }
+  return ytDlpExec;
+}
+
+const ytDlp = getYtDlp();
 
 function prepareCookiesOptions(cookiesPath, options) {
   if (!cookiesPath) return;

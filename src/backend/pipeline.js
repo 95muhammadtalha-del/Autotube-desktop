@@ -4,14 +4,28 @@ import path from 'path';
 import os from 'os';
 import { createRequire } from 'module';
 import { GoogleGenAI } from '@google/genai';
+import { app } from 'electron';
 
 const require = createRequire(import.meta.url);
 
 // Use bundled ffmpeg-static binary (no system FFmpeg install needed)
+// In production, resolve from app.asar.unpacked so the binary is executable
 let FFMPEG_PATH = 'ffmpeg'; // fallback to system
 try {
-  FFMPEG_PATH = require('ffmpeg-static');
-  console.log('[pipeline] Using bundled FFmpeg:', FFMPEG_PATH);
+  if (app.isPackaged) {
+    // Binary must come from unpacked dir in production
+    FFMPEG_PATH = path.join(
+      process.resourcesPath,
+      'app.asar.unpacked',
+      'node_modules',
+      'ffmpeg-static',
+      process.platform === 'win32' ? 'ffmpeg.exe' : 'ffmpeg'
+    );
+    console.log('[pipeline] Using packaged FFmpeg:', FFMPEG_PATH);
+  } else {
+    FFMPEG_PATH = require('ffmpeg-static');
+    console.log('[pipeline] Using bundled FFmpeg:', FFMPEG_PATH);
+  }
 } catch (e) {
   console.warn('[pipeline] ffmpeg-static not found, using system ffmpeg');
 }
@@ -171,20 +185,21 @@ I am providing you with:
 2. The audio track of the video.
 3. Original context from the source (if any): "${baseMetadata.title || ''} ${baseMetadata.description || ''}"
 
-Your task is to analyze the visual content and audio to understand EXACTLY what is happening in this video. 
+Your task is to analyze the visual content and audio to understand EXACTLY what is happening in this video and optimize it for maximum algorithmic reach.
 
 CRITICAL RULES:
+- Identify trending SEO keywords related to the content. Strategically use a combination of low-competition (long-tail) and high-volume (broad) keywords.
 - DO NOT hallucinate or invent context that isn't clearly visible in the images or heard in the audio. If it's a simple meme or funny clip, treat it as such.
-- Keep the title highly relatable, catchy, and click-worthy (max 70 chars).
-- The description MUST be exactly 2-3 sentences, natural-sounding, and summarize what is ACTUALLY happening in the video. Do not be overly dramatic or write poetic paragraphs.
-- Seamlessly integrate relevant keywords into the description.
-- You MUST put 3-4 highly relevant hashtags at the very end of the description text.
+- The title MUST be highly relatable, catchy, and click-worthy (max 70 chars). Seamlessly include a strong SEO keyword.
+- The description MUST be exactly 2-3 sentences, natural-sounding, and summarize what is ACTUALLY happening in the video. Integrate your low/high volume keywords naturally without keyword stuffing.
+- You MUST put 3-4 highly relevant, trending hashtags at the very end of the description text.
+- The tags list should include a mix of broad, high-volume keywords and specific, low-competition keywords.
 
 Return ONLY valid JSON in this exact format (no markdown):
 {
-  "title": "A highly catchy, relatable YouTube title",
-  "description": "A realistic 2-3 sentence description summarizing the actual video content. Seamlessly integrate relevant keywords, ending with 3-4 hashtags.",
-  "tags": "comma, separated, list, of, 15, highly, relevant, seo, tags"
+  "title": "A highly catchy, relatable YouTube title with a strong keyword",
+  "description": "A realistic 2-3 sentence description summarizing the content. Naturally includes low/high volume keywords, ending with 3-4 trending hashtags.",
+  "tags": "comma, separated, list, of, 15, mix, of, low, and, high, volume, seo, keywords"
 }`;
 
   const parts = [

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { 
   Trash2,
   Play, 
@@ -18,12 +18,78 @@ import {
   ChevronLeft,
   ChevronRight,
   Clock,
-  Scissors
+  Scissors,
+  Music,
+  Download
 } from 'lucide-react';
 import './index.css';
 
 // Dynamically require electron to avoid Vite build errors
 const electron = window.require ? window.require('electron') : null;
+
+// ── YouTube Audio Downloader Component ────────────────────────────────────────
+function YTMusicDownloader({ onSaved }) {
+  const [url, setUrl] = useState('');
+  const [status, setStatus] = useState('idle'); // idle | downloading | done | error
+  const [msg, setMsg] = useState('');
+
+  const handleDownload = async () => {
+    if (!url.trim()) return;
+    setStatus('downloading');
+    setMsg('⏳ Downloading audio from YouTube...');
+    try {
+      const result = await electron.ipcRenderer.invoke('music:download-yt', { url: url.trim() });
+      if (result.success) {
+        setStatus('done');
+        setMsg(`✅ Saved: ${result.name}`);
+        setUrl('');
+        onSaved(result.path, result.name);
+      } else {
+        setStatus('error');
+        setMsg(`❌ ${result.error}`);
+      }
+    } catch (e) {
+      setStatus('error');
+      setMsg(`❌ ${e.message}`);
+    }
+  };
+
+  return (
+    <div style={{ background: 'var(--bg-primary)', border: '1px solid var(--border-color)', borderRadius: '0.5rem', padding: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.2rem' }}>
+        <Music size={13} color="var(--brand-primary)" />
+        <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-main)' }}>Download from YouTube (Copyright-Free)</span>
+      </div>
+      <div style={{ display: 'flex', gap: '0.5rem' }}>
+        <input
+          className="input-field"
+          style={{ flex: 1, fontSize: '0.78rem' }}
+          placeholder="Paste YouTube URL... (e.g. youtube.com/watch?v=...)"
+          value={url}
+          onChange={e => { setUrl(e.target.value); setStatus('idle'); setMsg(''); }}
+          onKeyDown={e => e.key === 'Enter' && handleDownload()}
+        />
+        <button
+          className="btn-pill"
+          onClick={handleDownload}
+          disabled={status === 'downloading' || !url.trim()}
+          style={{ whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: '0.4rem', opacity: status === 'downloading' ? 0.6 : 1 }}
+        >
+          <Download size={12} />
+          {status === 'downloading' ? 'Downloading...' : 'Get Audio'}
+        </button>
+      </div>
+      {msg && (
+        <p style={{ margin: 0, fontSize: '0.72rem', color: status === 'error' ? 'var(--danger, #ef4444)' : status === 'done' ? 'var(--success, #10b981)' : 'var(--text-muted)' }}>{msg}</p>
+      )}
+      <p style={{ margin: 0, fontSize: '0.68rem', color: 'var(--text-muted)' }}>
+        💡 Search YouTube Audio Library: <a href="#" onClick={e => { e.preventDefault(); electron?.shell?.openExternal('https://studio.youtube.com/channel/audio'); }} style={{ color: 'var(--brand-primary)' }}>studio.youtube.com/channel/audio</a>
+      </p>
+    </div>
+  );
+}
+
+
 
 const CAPTION_THEMES = [
   { id: 'hormozi_green', label: 'Hormozi Green', render: () => <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: '0.85rem', color: '#FFFFFF' }}>HORMOZI <span style={{ color: '#27E36B' }}>GREEN</span></span> },
@@ -724,6 +790,34 @@ export default function App() {
               <div style={{ marginBottom: '1.5rem' }}>
                 <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.8rem', display: 'block' }}>Theme (Caption Style)</label>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+                  {/* None option */}
+                  {(() => {
+                    const isNone = (activeCampaign.clipperCaptionStyle || 'hormozi_green') === 'none';
+                    return (
+                      <div
+                        onClick={() => updateActiveCampaign(s => ({ ...s, clipperCaptionStyle: 'none' }))}
+                        style={{
+                          background: isNone ? 'rgba(255, 255, 255, 0.08)' : 'var(--bg-primary)',
+                          border: `2px solid ${isNone ? 'var(--brand-primary)' : 'transparent'}`,
+                          borderRadius: '0.5rem',
+                          padding: '0.75rem 0.5rem 0.5rem',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          minHeight: '70px',
+                          boxShadow: isNone ? '0 4px 12px rgba(0,0,0,0.2)' : '0 2px 4px rgba(0,0,0,0.1)',
+                          transition: 'all 0.2s ease',
+                          opacity: isNone ? 1 : 0.7,
+                          gap: '0.5rem'
+                        }}
+                      >
+                        <div style={{ fontSize: '1.5rem' }}>🚫</div>
+                        <div style={{ fontSize: '0.65rem', color: isNone ? '#fff' : 'var(--text-muted)', fontWeight: 600 }}>No Captions</div>
+                      </div>
+                    );
+                  })()}
                   {CAPTION_THEMES.map(theme => {
                     const isSelected = (activeCampaign.clipperCaptionStyle || 'hormozi_green') === theme.id;
                     return (
@@ -784,19 +878,60 @@ export default function App() {
               <div style={{ marginBottom: '1.5rem' }}>
                 <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.4rem', display: 'block' }}>Background Music</label>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
-                  <select className="input-field" value={activeCampaign.clipperMusic || ''} onChange={e => updateActiveCampaign(s => ({ ...s, clipperMusic: e.target.value }))}>
-                    <option value="">None</option>
-                    <option value="Arijit_Singh-_Agar_Tum_Sath_Ho_-_Alka_Yagnik__A.R._Rehman__Irshad_Kamil_-_Yo.m4a">Agar Tum Sath Ho (Arijit Singh)</option>
-                    <option value="Empire - Ogryzek _edit audio_ __ Non-copyright audios __ lol editz.m4a">Empire (Ogryzek)</option>
-                    <option value="Montagem orquesta - sinf_nica _ edit audio _ _.m4a">Montagem Orquesta</option>
-                    <option value="Murder-In-My-Mind_PagalWorlld.Com_.mp3">Murder In My Mind</option>
-                    <option value="_Karan_Aujla__Official_Video__Tania__Sukh_Sanghera_Desi_Crew__Latest_Punjabi.mp3">Karan Aujla</option>
-                    <option value="_Khairiyat__Chhichhore__Nitesh_Tiwari__Arijit_Singh__Sushant__Shraddha__Prit.mp3">Khairiyat</option>
-                    <option value="another love - tom odell - edit audio.m4a">Another Love (Tom Odell)</option>
-                    <option value="dum dum_ da di da   slowed _ reverb.m4a">Dum Dum (Slowed & Reverb)</option>
-                    <option value="lady-gaga-bad-romance-slowed-reverb-bb-127808_456244124.mp3">Bad Romance (Slowed)</option>
-                    <option value="ssvid.net---CANTO-DE-LUNA-Best-Part-Slowed-h6itam-ICEDMANE_v720P.m4a">Canto De Luna</option>
-                  </select>
+                  <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <select className="input-field" style={{ flex: 1 }} value={activeCampaign.clipperMusic || ''} onChange={e => updateActiveCampaign(s => ({ ...s, clipperMusic: e.target.value, clipperMusicCustomPath: '' }))}>
+                      <option value="">None</option>
+                      <option value="Arijit_Singh-_Agar_Tum_Sath_Ho_-_Alka_Yagnik__A.R._Rehman__Irshad_Kamil_-_Yo.m4a">Agar Tum Sath Ho (Arijit Singh)</option>
+                      <option value="Empire - Ogryzek _edit audio_ __ Non-copyright audios __ lol editz.m4a">Empire (Ogryzek)</option>
+                      <option value="Montagem orquesta - sinf_nica _ edit audio _ _.m4a">Montagem Orquesta</option>
+                      <option value="Murder-In-My-Mind_PagalWorlld.Com_.mp3">Murder In My Mind</option>
+                      <option value="_Karan_Aujla__Official_Video__Tania__Sukh_Sanghera_Desi_Crew__Latest_Punjabi.mp3">Karan Aujla</option>
+                      <option value="_Khairiyat__Chhichhore__Nitesh_Tiwari__Arijit_Singh__Sushant__Shraddha__Prit.mp3">Khairiyat</option>
+                      <option value="another love - tom odell - edit audio.m4a">Another Love (Tom Odell)</option>
+                      <option value="dum dum_ da di da   slowed _ reverb.m4a">Dum Dum (Slowed & Reverb)</option>
+                      <option value="lady-gaga-bad-romance-slowed-reverb-bb-127808_456244124.mp3">Bad Romance (Slowed)</option>
+                      <option value="ssvid.net---CANTO-DE-LUNA-Best-Part-Slowed-h6itam-ICEDMANE_v720P.m4a">Canto De Luna</option>
+                      {activeCampaign.clipperMusicCustomPath && (
+                        <option value={`__custom__${activeCampaign.clipperMusicCustomPath}`}>✅ {activeCampaign.clipperMusicCustomName || 'Custom Upload'}</option>
+                      )}
+                    </select>
+                    <label className="btn-pill" style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', whiteSpace: 'nowrap' }} title="Upload your own music file">
+                      <Upload size={13} /> Upload Music
+                      <input type="file" accept="audio/*,.mp3,.m4a,.wav,.ogg,.flac" style={{ display: 'none' }} onChange={async e => {
+                        const file = e.target.files[0];
+                        if (!file) return;
+                        // Save to userData music folder via IPC
+                        const reader = new FileReader();
+                        reader.onload = async ev => {
+                          const buffer = ev.target.result;
+                          const savedPath = await electron.ipcRenderer.invoke('music:save', { name: file.name, buffer });
+                          if (savedPath) {
+                            updateActiveCampaign(s => ({
+                              ...s,
+                              clipperMusic: `__custom__${savedPath}`,
+                              clipperMusicCustomPath: savedPath,
+                              clipperMusicCustomName: file.name
+                            }));
+                          }
+                        };
+                        reader.readAsArrayBuffer(file);
+                      }} />
+                    </label>
+                  </div>
+                  {activeCampaign.clipperMusicCustomPath && (
+                    <p style={{ fontSize: '0.72rem', color: 'var(--success)', margin: 0 }}>🎵 Custom: {activeCampaign.clipperMusicCustomName}</p>
+                  )}
+
+
+
+                  <YTMusicDownloader onSaved={(savedPath, name) => {
+                    updateActiveCampaign(s => ({
+                      ...s,
+                      clipperMusic: `__custom__${savedPath}`,
+                      clipperMusicCustomPath: savedPath,
+                      clipperMusicCustomName: name
+                    }));
+                  }} />
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', padding: '1rem', background: 'var(--bg-primary)', borderRadius: '0.5rem', border: '1px solid var(--border-color)' }}>
                     <div>
@@ -1530,11 +1665,44 @@ export default function App() {
                   <div style={{ padding: '0.75rem 1rem', background: 'var(--brand-primary)', color: '#000', borderBottom: '1px solid var(--border-color)', fontWeight: 700, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <span>AI Generated Output</span>
                       <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                          <select value={aspectRatio} onChange={e => setAspectRatio(e.target.value)} style={{ padding: '0.2rem', fontSize: '0.7rem', borderRadius: '4px', background: 'rgba(0,0,0,0.1)', border: 'none', color: '#000', outline: 'none', fontWeight: 600 }}>
-                            <option value="9:16">9:16 Vertical</option>
-                            <option value="16:9">16:9 Landscape</option>
-                            <option value="1:1">1:1 Square</option>
-                          </select>
+                          {/* Aspect Ratio Buttons */}
+                          {[{val:'9:16',label:'▯ Vertical'},{val:'1:1',label:'⬜ Square'},{val:'16:9',label:'▭ Horizontal'}].map(r => (
+                            <button
+                              key={r.val}
+                              onClick={() => setAspectRatio(r.val)}
+                              style={{
+                                padding: '0.2rem 0.5rem',
+                                fontSize: '0.65rem',
+                                borderRadius: '4px',
+                                border: 'none',
+                                cursor: 'pointer',
+                                fontWeight: 700,
+                                background: aspectRatio === r.val ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,0.1)',
+                                color: '#000',
+                                outline: aspectRatio === r.val ? '2px solid rgba(0,0,0,0.4)' : 'none'
+                              }}
+                            >{r.label}</button>
+                          ))}
+                          {/* Download Button */}
+                          {(playerOutputVideo || (playerOutputVideos && playerOutputVideos.length > 0)) && (
+                            <button
+                              onClick={() => {
+                                const vidPath = playerOutputVideos?.length > 0 ? playerOutputVideos[outputVideoIndex] : playerOutputVideo;
+                                if (vidPath && electron) electron.ipcRenderer.invoke('shell:open', vidPath);
+                              }}
+                              style={{
+                                padding: '0.2rem 0.6rem',
+                                fontSize: '0.65rem',
+                                borderRadius: '4px',
+                                border: 'none',
+                                cursor: 'pointer',
+                                fontWeight: 700,
+                                background: 'rgba(0,0,0,0.25)',
+                                color: '#000',
+                                display: 'flex', alignItems: 'center', gap: '0.3rem'
+                              }}
+                            >📥 Download</button>
+                          )}
                           {playerOutputVideos.length > 1 && (
                               <>
                                   <button onClick={() => setOutputVideoIndex(Math.max(0, outputVideoIndex - 1))} style={{ background: 'rgba(0,0,0,0.1)', border: 'none', borderRadius: '4px', cursor: 'pointer', padding: '0 0.4rem' }}>&larr;</button>
@@ -1561,14 +1729,7 @@ export default function App() {
                         return (
                             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#000', padding: '1rem', gap: '1rem' }}>
                                 <video 
-                                    src={playerOutputVideo.startsWith('http') ? playerOutputVideo : `file:///${playerOutputVideo.replace(/\\\\/g, '/')}`} 
-                                    controls 
-                                    style={{ height: '100%', maxHeight: '340px', borderRadius: '0.5rem', boxShadow: '0 0 20px rgba(0,0,0,0.5)' }}
-                                />
-                            </div>
-                        );
-                    }
-                    if (playerInputVideo && !isPlayerProcessing) {
+                                    if (playerInputVideo && !isPlayerProcessing) {
                         const zoom = activeCampaign.clipperZoom !== undefined ? activeCampaign.clipperZoom : 1.0;
                         const cg = activeCampaign.clipperColorGrade || 'vibrant';
                         let f = '';
@@ -1579,11 +1740,15 @@ export default function App() {
                         if (cg === 'vintage') f += ' sepia(0.5) contrast(0.8) brightness(1.1)';
                         f = f.trim() || 'none';
                         const theme = CAPTION_THEMES.find(t => t.id === (activeCampaign.clipperCaptionStyle || 'hormozi_green'));
+                        // Map aspectRatio state to CSS aspect-ratio value
+                        const previewAspect = aspectRatio === '16:9' ? '16/9' : aspectRatio === '1:1' ? '1/1' : '9/16';
+                        const previewMaxH = aspectRatio === '16:9' ? '220px' : '380px';
+                        const previewMaxW = aspectRatio === '16:9' ? '100%' : aspectRatio === '1:1' ? '220px' : '160px';
                         return (
                             <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#111', padding: '1rem', position: 'relative' }}>
-                                <div style={{ height: '100%', maxHeight: '380px', aspectRatio: '9/16', borderRadius: '0.5rem', overflow: 'hidden', position: 'relative', boxShadow: '0 0 20px rgba(0,0,0,0.5)', background: '#000' }}>
+                                <div style={{ maxHeight: previewMaxH, maxWidth: previewMaxW, width: '100%', aspectRatio: previewAspect, borderRadius: '0.5rem', overflow: 'hidden', position: 'relative', boxShadow: '0 0 20px rgba(0,0,0,0.5)', background: '#000', transition: 'all 0.3s ease' }}>
                                     <video 
-                                        src={`file:///${playerInputVideo.replace(/\\\\/g, '/')}`} 
+                                        src={`file:///${playerInputVideo.replace(/\\/g, '/')}`} 
                                         controls={false} autoPlay muted loop
                                         style={{ width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${zoom})`, filter: f, transition: 'all 0.3s ease' }}
                                     />
@@ -1591,13 +1756,16 @@ export default function App() {
                                         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, boxShadow: 'inset 0 0 80px rgba(0,0,0,0.8)', pointerEvents: 'none' }}/>
                                     )}
                                     <div style={{ position: 'absolute', top: '70%', left: 0, right: 0, display: 'flex', justifyContent: 'center', pointerEvents: 'none', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                                        {theme ? theme.render() : null}
+                                        {(activeCampaign.clipperCaptionStyle !== 'none' && theme) ? theme.render() : null}
                                     </div>
                                 </div>
                                 <div style={{ position: 'absolute', top: '0.5rem', right: '0.5rem', background: 'rgba(255,40,80,0.9)', color: '#fff', fontSize: '0.65rem', padding: '0.2rem 0.5rem', borderRadius: '1rem', fontWeight: 800 }}>LIVE PREVIEW</div>
+                                <div style={{ position: 'absolute', bottom: '0.5rem', left: '50%', transform: 'translateX(-50%)', background: 'rgba(0,0,0,0.6)', color: '#aaa', fontSize: '0.6rem', padding: '0.15rem 0.5rem', borderRadius: '1rem', fontWeight: 700 }}>{aspectRatio}</div>
                             </div>
                         );
                     }
+                    }
+
                     return (
                         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg, rgba(16,185,129,0.05), rgba(16,185,129,0.15))', gap: '1.5rem', padding: '2rem', position: 'relative', overflow: 'hidden' }}>
                             <div style={{ position: 'absolute', width: '200px', height: '200px', background: '#10b981', filter: 'blur(100px)', opacity: 0.15, borderRadius: '50%' }} />

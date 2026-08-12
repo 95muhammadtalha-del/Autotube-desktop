@@ -11,7 +11,23 @@ const __dirname = path.dirname(__filename);
  */
 export async function processVideoWithClipper(videoPath, logFn, config = {}) {
   logFn('> 📤 Uploading raw video to Local Clipper AI...');
-  
+
+  // Wait for Python backend to be ready (Whisper model takes 20-40s to load)
+  logFn('> ⏳ Waiting for Clipper AI backend to be ready...');
+  const maxWaitMs = 60000; // wait up to 60 seconds
+  const interval = 2000;
+  let waited = 0;
+  while (waited < maxWaitMs) {
+    try {
+      const health = await fetch('http://127.0.0.1:8000/api/health', { signal: AbortSignal.timeout(3000) });
+      if (health.ok) break;
+    } catch (_) { /* not ready yet */ }
+    await new Promise(r => setTimeout(r, interval));
+    waited += interval;
+  }
+  if (waited >= maxWaitMs) throw new Error('Clipper AI backend did not start in time. Please try again.');
+  logFn('> ✅ Clipper AI backend is ready!');
+
   // 1. Upload to /api/upload
   const fileBuffer = fs.readFileSync(videoPath);
   const blob = new Blob([fileBuffer], { type: 'video/mp4' });
@@ -48,7 +64,11 @@ export async function processVideoWithClipper(videoPath, logFn, config = {}) {
       edge_crop: config.clipperEdgeCrop !== undefined ? parseFloat(config.clipperEdgeCrop) : 0,
       zoom_factor: config.clipperZoom !== undefined ? parseFloat(config.clipperZoom) : 1.0,
       audio_pitch: config.clipperAudioPitch !== undefined ? parseFloat(config.clipperAudioPitch) : 1.0,
-      music_track: config.clipperMusic || null,
+      music_track: config.clipperMusic
+        ? (config.clipperMusic.startsWith('__custom__')
+            ? config.clipperMusic.replace('__custom__', '')
+            : config.clipperMusic)
+        : null,
       video_volume: config.clipperVideoVolume !== undefined ? config.clipperVideoVolume : 100.0,
       music_volume: config.clipperMusicVolume !== undefined ? config.clipperMusicVolume : 35.0,
       cinematic: {

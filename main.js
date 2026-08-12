@@ -4,8 +4,8 @@ import { fileURLToPath } from 'url';
 import fs from 'fs';
 import os from 'os';
 import { spawn } from 'child_process';
-import { autoUpdater } from 'electron-updater';
-import isDevModule from 'electron-is-dev';
+import pkg from 'electron-updater';
+const { autoUpdater } = pkg;
 import { runFullPipeline, analyzeVideo, generateYouTubeMetadata, extractViralHighlights } from './src/backend/pipeline.js';
 
 import {
@@ -19,7 +19,7 @@ import { processVideoWithClipper } from './src/backend/clipperClient.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const isDev = process.env.NODE_ENV !== 'production';
+const isDev = !app.isPackaged;
 
 app.commandLine.appendSwitch('disable-gpu-cache');
 app.commandLine.appendSwitch('disable-http-cache');
@@ -140,6 +140,70 @@ ipcMain.handle('dialog:openDirectory', async () => {
   }
   return null;
 });
+
+ipcMain.handle('music:save', async (event, { name, buffer }) => {
+  try {
+    const musicDir = path.join(app.getPath('userData'), 'custom_music');
+    if (!fs.existsSync(musicDir)) fs.mkdirSync(musicDir, { recursive: true });
+    const safeName = name.replace(/[^a-zA-Z0-9._\-]/g, '_');
+    const destPath = path.join(musicDir, safeName);
+    fs.writeFileSync(destPath, Buffer.from(buffer));
+    console.log('[music] Saved custom music to:', destPath);
+    return destPath;
+  } catch (err) {
+    console.error('[music] Failed to save:', err.message);
+    return null;
+  }
+});
+
+ipcMain.handle('music:download-yt', async (event, { url }) => {
+  try {
+    const musicDir = path.join(app.getPath('userData'), 'custom_music');
+    if (!fs.existsSync(musicDir)) fs.mkdirSync(musicDir, { recursive: true });
+
+    // Resolve yt-dlp binary — from unpacked asar in production, node_modules in dev
+    const { createRequire } = await import('module');
+    const _req = createRequire(import.meta.url);
+    let ytDlpBin;
+    if (app.isPackaged) {
+      ytDlpBin = path.join(process.resourcesPath, 'app.asar.unpacked', 'node_modules', 'yt-dlp-exec', 'bin', 'yt-dlp.exe');
+    } else {
+      const ytDlpExec = _req('yt-dlp-exec');
+      ytDlpBin = ytDlpExec.path || path.join(__dirname, 'node_modules', 'yt-dlp-exec', 'bin', 'yt-dlp.exe');
+    }
+
+    const outputTemplate = path.join(musicDir, '%(title)s.%(ext)s');
+
+    await new Promise((resolve, reject) => {
+      const proc = spawn(ytDlpBin, [
+        url,
+        '-x',                          // extract audio only
+        '--audio-format', 'mp3',
+        '--audio-quality', '0',
+        '-o', outputTemplate,
+        '--no-playlist',
+      ]);
+      proc.on('close', code => code === 0 ? resolve() : reject(new Error(`yt-dlp exited with code ${code}`)));
+      proc.stderr.on('data', d => console.log('[yt-dlp music]', d.toString()));
+    });
+
+    // Find the downloaded file (most recent mp3 in musicDir)
+    const files = fs.readdirSync(musicDir)
+      .filter(f => f.endsWith('.mp3'))
+      .map(f => ({ name: f, time: fs.statSync(path.join(musicDir, f)).mtime }))
+      .sort((a, b) => b.time - a.time);
+
+    if (!files.length) throw new Error('No audio file found after download.');
+    const latest = files[0];
+    return { success: true, path: path.join(musicDir, latest.name), name: latest.name };
+  } catch (err) {
+    console.error('[music:download-yt] Error:', err.message);
+    return { success: false, error: err.message };
+  }
+});
+
+
+
 
 ipcMain.handle('clipper:process_single', async (event, { videoPath, config }) => {
   try {
@@ -657,12 +721,15 @@ function createWindow() {
 let pythonProcess = null;
 
 function startPythonClipper() {
-  if (!isDevModule) {
+  if (app.isPackaged) {
     // Production Mode: run the bundled PyInstaller executable
     const exePath = path.join(process.resourcesPath, 'python_clipper', 'python_clipper.exe');
     if (fs.existsSync(exePath)) {
       console.log('[python] Starting packaged python_clipper.exe...');
-      pythonProcess = spawn(exePath, ['--host', '127.0.0.1', '--port', '8000']);
+      // PyInstaller exe does NOT accept --host/--port args — start it directly
+      pythonProcess = spawn(exePath, [], {
+        env: { ...process.env, PORT: '8000', HOST: '127.0.0.1' }
+      });
       pythonProcess.stdout.on('data', data => console.log(`[python] ${data}`));
       pythonProcess.stderr.on('data', data => console.error(`[python error] ${data}`));
       pythonProcess.on('close', code => console.log(`[python] Process exited with code ${code}`));
@@ -712,7 +779,7 @@ autoUpdater.on('update-downloaded', () => {
 
 ipcMain.handle('app:check_updates', async (event) => {
   updateWindow = event.sender.getOwnerBrowserWindow();
-  if (isDevModule) return { success: false, error: 'Auto-updates are disabled in dev mode.' };
+  if (!app.isPackaged) return { success: false, error: 'Auto-updates are disabled in dev mode.' };
   try {
     await autoUpdater.checkForUpdates();
     return { success: true };
