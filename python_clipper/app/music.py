@@ -156,6 +156,12 @@ def resolve_track(track: str) -> Path:
     """
     if not track:
         raise InvalidVideoURLError("No music track was given.")
+    
+    # Check if the track is an absolute path passed from Electron
+    abs_candidate = Path(track).resolve()
+    if abs_candidate.is_absolute() and abs_candidate.is_file():
+        return abs_candidate
+        
     # Only ever trust the bare filename — never a path.
     candidate = (MUSIC_DIR / Path(track).name).resolve()
     if MUSIC_DIR.resolve() not in candidate.parents or not candidate.is_file():

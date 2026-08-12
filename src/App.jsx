@@ -1684,17 +1684,17 @@ export default function App() {
                             <button
                               key={r.val}
                               onClick={() => setAspectRatio(r.val)}
-                              style={{
-                                padding: '0.2rem 0.5rem',
-                                fontSize: '0.65rem',
-                                borderRadius: '4px',
-                                border: 'none',
-                                cursor: 'pointer',
-                                fontWeight: 700,
-                                background: aspectRatio === r.val ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,0.1)',
-                                color: '#000',
-                                outline: aspectRatio === r.val ? '2px solid rgba(0,0,0,0.4)' : 'none'
-                              }}
+                                style={{
+                                  padding: '0.2rem 0.5rem',
+                                  fontSize: '0.65rem',
+                                  borderRadius: '4px',
+                                  border: 'none',
+                                  cursor: 'pointer',
+                                  fontWeight: 700,
+                                  background: aspectRatio === r.val ? 'rgba(0,0,0,0.6)' : 'rgba(0,0,0,0.2)',
+                                  color: '#fff',
+                                  outline: aspectRatio === r.val ? '2px solid rgba(255,255,255,0.4)' : 'none'
+                                }}
                             >{r.label}</button>
                           ))}
                           {/* Download Button */}
