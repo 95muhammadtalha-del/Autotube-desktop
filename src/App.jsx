@@ -1771,7 +1771,7 @@ export default function App() {
                             </div>
                         );
                     }
-                    }
+
 
                     return (
                         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg, rgba(16,185,129,0.05), rgba(16,185,129,0.15))', gap: '1.5rem', padding: '2rem', position: 'relative', overflow: 'hidden' }}>
