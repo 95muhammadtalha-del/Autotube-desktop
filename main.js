@@ -174,11 +174,14 @@ ipcMain.handle('music:download-yt', async (event, { url }) => {
     const { createRequire } = await import('module');
     const _req = createRequire(import.meta.url);
     let ytDlpBin;
+    let ffmpegBin;
     if (app.isPackaged) {
       ytDlpBin = path.join(process.resourcesPath, 'app.asar.unpacked', 'node_modules', 'yt-dlp-exec', 'bin', 'yt-dlp.exe');
+      ffmpegBin = path.join(process.resourcesPath, 'app.asar.unpacked', 'node_modules', 'ffmpeg-static', 'ffmpeg.exe');
     } else {
       const ytDlpExec = _req('yt-dlp-exec');
       ytDlpBin = ytDlpExec.path || path.join(__dirname, 'node_modules', 'yt-dlp-exec', 'bin', 'yt-dlp.exe');
+      ffmpegBin = _req('ffmpeg-static');
     }
 
     const outputTemplate = path.join(musicDir, '%(title)s.%(ext)s');
@@ -189,6 +192,7 @@ ipcMain.handle('music:download-yt', async (event, { url }) => {
         '-x',                          // extract audio only
         '--audio-format', 'mp3',
         '--audio-quality', '0',
+        '--ffmpeg-location', ffmpegBin,
         '-o', outputTemplate,
         '--no-playlist',
       ]);

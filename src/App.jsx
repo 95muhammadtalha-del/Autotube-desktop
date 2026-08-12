@@ -1612,14 +1612,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="export-folder" style={{ cursor: 'pointer', marginBottom: '0.5rem' }} onClick={() => {
-          if (electron && appSettings.exportFolder) {
-            electron.ipcRenderer.invoke('shell:open', appSettings.exportFolder);
-          }
-        }}>
-          <FolderOpen size={32} />
-          <span style={{ fontSize: '0.8rem', textAlign: 'center' }}>Export folder</span>
-        </div>
+
 
         <div className="export-folder" style={{ cursor: 'pointer', background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444' }} onClick={() => {
           if (confirm('Are you sure you want to exit the application and stop all automation?')) {
@@ -1773,7 +1766,7 @@ export default function App() {
                         const previewMaxH = aspectRatio === '16:9' ? '220px' : '380px';
                         const previewMaxW = aspectRatio === '16:9' ? '100%' : aspectRatio === '1:1' ? '220px' : '160px';
                         return (
-                            <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#111', padding: '1rem', position: 'relative' }}>
+                            <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg, #4f46e5 0%, #ec4899 50%, #f59e0b 100%)', padding: '1rem', position: 'relative' }}>
                                 <div style={{ maxHeight: previewMaxH, maxWidth: previewMaxW, width: '100%', aspectRatio: previewAspect, borderRadius: '0.5rem', overflow: 'hidden', position: 'relative', boxShadow: '0 0 20px rgba(0,0,0,0.5)', background: '#000', transition: 'all 0.3s ease' }}>
                                     <video 
                                         src={`file:///${playerInputVideo.replace(/\\/g, '/')}`} 
