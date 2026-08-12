@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { 
+  Database,
   Trash2,
   Play, 
   FolderOpen, 
@@ -2197,6 +2198,24 @@ export default function App() {
                     <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{updateState.error}</p>
                   )}
                 </div>
+              </div>
+
+              {/* Storage Management */}
+              <div className="panel-box settings-section">
+                <div className="section-title"><Database size={16} /> Storage Management</div>
+                <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>Clear downloaded TikToks, generated clips, and temporary files to free up disk space.</p>
+                <button 
+                  className="btn-primary" 
+                  style={{ background: 'var(--danger)', display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}
+                  onClick={async () => {
+                    if (window.confirm("Are you sure you want to delete all temporary and downloaded videos? This cannot be undone.")) {
+                      const res = await electron.ipcRenderer.invoke('app:clear_data');
+                      alert(res.success ? res.message : `Failed: ${res.error}`);
+                    }
+                  }}
+                >
+                  <Trash2 size={14} /> Clear Cache & Downloads
+                </button>
               </div>
             </div>
 

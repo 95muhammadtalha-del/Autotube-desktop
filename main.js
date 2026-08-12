@@ -851,6 +851,46 @@ ipcMain.handle('app:install_update', () => {
   autoUpdater.quitAndInstall();
 });
 
+ipcMain.handle('app:clear_data', async () => {
+  try {
+    const cfg = store.get('appSettings') || {};
+    const exportFolder = cfg.exportFolder || path.join(app.getPath('desktop'), 'AutoTube Outputs');
+    const tiktokDir = path.join(exportFolder, 'TikTok Downloads');
+    const tempDir = path.join(app.getPath('userData'), 'temp');
+    const clipperDir = app.isPackaged ? path.join(process.resourcesPath, 'python_clipper', 'clips') : path.join(__dirname, 'python_clipper', 'clips');
+
+    let deletedBytes = 0;
+    
+    // Helper to delete dir contents but keep the dir itself, returning bytes freed
+    const clearDir = (dirPath) => {
+      if (!fs.existsSync(dirPath)) return 0;
+      let freed = 0;
+      const files = fs.readdirSync(dirPath);
+      for (const file of files) {
+        const fullPath = path.join(dirPath, file);
+        try {
+          const stats = fs.statSync(fullPath);
+          freed += stats.size;
+          fs.rmSync(fullPath, { recursive: true, force: true });
+        } catch (e) {
+          console.error('Failed to delete', fullPath, e);
+        }
+      }
+      return freed;
+    };
+
+    deletedBytes += clearDir(tiktokDir);
+    deletedBytes += clearDir(tempDir);
+    deletedBytes += clearDir(clipperDir);
+
+    // Convert to MB
+    const mbFreed = (deletedBytes / (1024 * 1024)).toFixed(2);
+    return { success: true, message: `Successfully cleared ${mbFreed} MB of cached videos.` };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+});
+
 app.whenReady().then(() => {
   initDatabase(app.getPath('userData'));
   startPythonClipper();
