@@ -14,14 +14,37 @@ export async function processVideoWithClipper(videoPath, logFn, config = {}) {
 
   // Wait for Python backend to be ready (Whisper model takes 20-40s to load)
   logFn('> ⏳ Waiting for Clipper AI backend to be ready...');
-  const maxWaitMs = 60000; // wait up to 60 seconds
-  const interval = 2000;
+  const maxWaitMs = 180000; // wait up to 3 minutes (Whisper model can be slow to load)
+  const interval = 3000;
   let waited = 0;
+  let restartAttempted = false;
   while (waited < maxWaitMs) {
     try {
-      const health = await fetch('http://127.0.0.1:8000/api/health', { signal: AbortSignal.timeout(3000) });
+      const health = await fetch('http://127.0.0.1:8000/api/health', { signal: AbortSignal.timeout(5000) });
       if (health.ok) break;
     } catch (_) { /* not ready yet */ }
+
+    // If backend hasn't responded after 30s, try restarting it
+    if (!restartAttempted && waited >= 30000) {
+      restartAttempted = true;
+      logFn('> 🔄 Clipper AI not responding — restarting backend...');
+      try {
+        const electron = await import('electron');
+        electron.ipcRenderer?.send?.('clipper:restart');
+      } catch (_) {
+        // In main process context, try global restart
+        try {
+          const { ipcMain } = await import('electron');
+          // Emit a restart event that main.js handles
+          process.emit('clipper-restart');
+        } catch (_2) { /* ignore */ }
+      }
+    }
+
+    if (waited > 0 && waited % 15000 === 0) {
+      logFn(`> ⏳ Still waiting for Clipper AI... (${Math.round(waited / 1000)}s elapsed)`);
+    }
+
     await new Promise(r => setTimeout(r, interval));
     waited += interval;
   }
@@ -105,10 +128,21 @@ export async function processVideoWithClipper(videoPath, logFn, config = {}) {
            const cleanUrl = clipUrl.split('?')[0];
            
            // Construct absolute path to the generated clip in python_clipper/clips
-           // process.cwd() should be e:\Try when running in dev, but in production we might need app.getAppPath()
-           // For simplicity and robust dev, we use the known path relative to this file
-           const projectRoot = path.resolve(__dirname, '..', '..');
-           const clipPath = path.join(projectRoot, 'python_clipper', cleanUrl.replace(/^\//, '').replace(/\//g, path.sep));
+           // In production (packaged), python_clipper lives under process.resourcesPath
+           // In dev, it's relative to the project root
+           let clipperRoot;
+           try {
+             const electron = await import('electron');
+             const app = electron.app || electron.remote?.app;
+             if (app && app.isPackaged) {
+               clipperRoot = path.join(process.resourcesPath, 'python_clipper');
+             } else {
+               clipperRoot = path.resolve(__dirname, '..', '..', 'python_clipper');
+             }
+           } catch (_) {
+             clipperRoot = path.resolve(__dirname, '..', '..', 'python_clipper');
+           }
+           const clipPath = path.join(clipperRoot, cleanUrl.replace(/^\//, '').replace(/\//g, path.sep));
            
            resolve(clipPath);
         } else if (data.status === 'error' || data.status === 'cancelled') {

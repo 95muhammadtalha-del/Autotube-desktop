@@ -38,67 +38,8 @@ if (typeof window !== 'undefined') {
   });
 }
 
-// ── YouTube Audio Downloader Component ────────────────────────────────────────
-function YTMusicDownloader({ onSaved }) {
-  const [url, setUrl] = useState('');
-  const [status, setStatus] = useState('idle'); // idle | downloading | done | error
-  const [msg, setMsg] = useState('');
 
-  const handleDownload = async () => {
-    if (!url.trim()) return;
-    setStatus('downloading');
-    setMsg('⏳ Downloading audio from YouTube...');
-    try {
-      const result = await electron.ipcRenderer.invoke('music:download-yt', { url: url.trim() });
-      if (result.success) {
-        setStatus('done');
-        setMsg(`✅ Saved: ${result.name}`);
-        setUrl('');
-        onSaved(result.path, result.name);
-      } else {
-        setStatus('error');
-        setMsg(`❌ ${result.error}`);
-      }
-    } catch (e) {
-      setStatus('error');
-      setMsg(`❌ ${e.message}`);
-    }
-  };
 
-  return (
-    <div style={{ background: 'var(--bg-primary)', border: '1px solid var(--border-color)', borderRadius: '0.5rem', padding: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.2rem' }}>
-        <Music size={13} color="var(--brand-primary)" />
-        <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-main)' }}>Download from YouTube (Copyright-Free)</span>
-      </div>
-      <div style={{ display: 'flex', gap: '0.5rem' }}>
-        <input
-          className="input-field"
-          style={{ flex: 1, fontSize: '0.78rem' }}
-          placeholder="Paste YouTube URL... (e.g. youtube.com/watch?v=...)"
-          value={url}
-          onChange={e => { setUrl(e.target.value); setStatus('idle'); setMsg(''); }}
-          onKeyDown={e => e.key === 'Enter' && handleDownload()}
-        />
-        <button
-          className="btn-pill"
-          onClick={handleDownload}
-          disabled={status === 'downloading' || !url.trim()}
-          style={{ whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: '0.4rem', opacity: status === 'downloading' ? 0.6 : 1 }}
-        >
-          <Download size={12} />
-          {status === 'downloading' ? 'Downloading...' : 'Get Audio'}
-        </button>
-      </div>
-      {msg && (
-        <p style={{ margin: 0, fontSize: '0.72rem', color: status === 'error' ? 'var(--danger, #ef4444)' : status === 'done' ? 'var(--success, #10b981)' : 'var(--text-muted)' }}>{msg}</p>
-      )}
-      <p style={{ margin: 0, fontSize: '0.68rem', color: 'var(--text-muted)' }}>
-        💡 Search YouTube Audio Library: <a href="#" onClick={e => { e.preventDefault(); electron?.shell?.openExternal('https://studio.youtube.com/channel/audio'); }} style={{ color: 'var(--brand-primary)' }}>studio.youtube.com/channel/audio</a>
-      </p>
-    </div>
-  );
-}
 
 
 
@@ -935,14 +876,6 @@ export default function App() {
 
 
 
-                  <YTMusicDownloader onSaved={(savedPath, name) => {
-                    updateActiveCampaign(s => ({
-                      ...s,
-                      clipperMusic: `__custom__${savedPath}`,
-                      clipperMusicCustomPath: savedPath,
-                      clipperMusicCustomName: name
-                    }));
-                  }} />
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', padding: '1rem', background: 'var(--bg-primary)', borderRadius: '0.5rem', border: '1px solid var(--border-color)' }}>
                     <div>

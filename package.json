@@ -3,7 +3,7 @@
     "description": "AutoTube Desktop Client",
     "author": "AutoTube",
     "private": true,
-    "version": "1.0.4",
+    "version": "1.1.0",
     "type": "module",
     "main": "main.js",
     "scripts": {

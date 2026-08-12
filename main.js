@@ -732,8 +732,17 @@ function createWindow() {
 }
 
 let pythonProcess = null;
+let pythonProcessExiting = false;
 
 function startPythonClipper() {
+  pythonProcessExiting = false;
+  
+  // Kill existing process if any
+  if (pythonProcess) {
+    try { pythonProcess.kill(); } catch (_) {}
+    pythonProcess = null;
+  }
+
   if (app.isPackaged) {
     // Production Mode: run the bundled PyInstaller executable
     const exePath = path.join(process.resourcesPath, 'python_clipper', 'python_clipper.exe');
@@ -745,7 +754,15 @@ function startPythonClipper() {
       });
       pythonProcess.stdout.on('data', data => console.log(`[python] ${data}`));
       pythonProcess.stderr.on('data', data => console.error(`[python error] ${data}`));
-      pythonProcess.on('close', code => console.log(`[python] Process exited with code ${code}`));
+      pythonProcess.on('close', (code) => {
+        console.log(`[python] Process exited with code ${code}`);
+        pythonProcess = null;
+        // Auto-restart if it crashed unexpectedly (not during app shutdown)
+        if (!pythonProcessExiting && code !== 0) {
+          console.log('[python] Backend crashed — auto-restarting in 2s...');
+          setTimeout(() => startPythonClipper(), 2000);
+        }
+      });
       return;
     } else {
       console.warn('[python] Bundled executable not found at:', exePath);
@@ -767,11 +784,31 @@ function startPythonClipper() {
     
     pythonProcess.stdout.on('data', data => console.log(`[python] ${data}`));
     pythonProcess.stderr.on('data', data => console.error(`[python error] ${data}`));
-    pythonProcess.on('close', code => console.log(`[python] Process exited with code ${code}`));
+    pythonProcess.on('close', (code) => {
+      console.log(`[python] Process exited with code ${code}`);
+      pythonProcess = null;
+      // Auto-restart if it crashed unexpectedly (not during app shutdown)
+      if (!pythonProcessExiting && code !== 0) {
+        console.log('[python] Backend crashed — auto-restarting in 2s...');
+        setTimeout(() => startPythonClipper(), 2000);
+      }
+    });
   } else {
     console.warn('[python] Could not find python venv. Run setup script in python_clipper.');
   }
 }
+
+// IPC handler to restart the Python clipper backend on demand
+ipcMain.on('clipper:restart', () => {
+  console.log('[python] Received restart request from renderer...');
+  startPythonClipper();
+});
+
+// Also listen for process-level restart event (from clipperClient in main process context)
+process.on('clipper-restart', () => {
+  console.log('[python] Received restart event from clipperClient...');
+  startPythonClipper();
+});
 
 // Auto-Updater Setup
 let updateWindow = null;
@@ -824,10 +861,12 @@ app.whenReady().then(() => {
 });
 
 app.on('window-all-closed', () => {
+  pythonProcessExiting = true;
   if (pythonProcess) pythonProcess.kill();
   if (process.platform !== 'darwin') app.quit();
 });
 app.on('will-quit', () => {
+  pythonProcessExiting = true;
   if (pythonProcess) pythonProcess.kill();
 });
 
